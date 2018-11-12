@@ -10,10 +10,10 @@ Container.prototype.render = function()
    return this.htmlCode;
 }
 
-Container.prototipe.remove = function()
+Container.prototype.remove = function()
 {
      /*document.getElementById(this.id).parentElement.removeChild(document.getElementById(this.id));*/
-   console.log(this.id);
+   console.log(this);
     console.log("wwwww");
    /* if (document.getElementById(this.id)){
         console.log(document.getElementById(this.id));
