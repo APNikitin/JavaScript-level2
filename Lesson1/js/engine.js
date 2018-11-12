@@ -15,6 +15,7 @@ Container.prototype.remove = function()
      /*document.getElementById(this.id).parentElement.removeChild(document.getElementById(this.id));*/
    console.log(this);
     console.log("wwwww");
+    delete this;
    /* if (document.getElementById(this.id)){
         console.log(document.getElementById(this.id));
     }
