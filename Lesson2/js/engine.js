@@ -14,8 +14,8 @@ function Menu(my_id, my_class, my_items){
    Container.call(this);
    this.id = my_id;
    this.className = my_class;
-   
    this.items = my_items;
+  
 }
 
 Menu.prototype = Object.create(Container.prototype);
@@ -34,12 +34,38 @@ Menu.prototype.render = function(){
   
   return result;
 }
+function SubMenu(my_id, my_class, my_items){
+   Container.call(this);
+   this.id = my_id;
+   this.className = my_class;
+   this.items = my_items;
+} 
 
-function MenuItem(my_href, my_name){
+SubMenu.prototype.render=function(){
+    var result = "<ul class='"+this.className+"' id='"+this.id+"'>";
+    for(var item in this.items){
+    if(this.items[item] instanceof MenuItem){ 
+      result += this.items[item].render();
+    }else{
+      var array = this.items[item]; 
+     result += "<ul>";
+        
+      for (elem in array){
+        result += array[elem].render();
+      }
+      result += "</ul>";
+    }
+  }
+        result += "</ul>";
+	
+	return result;
+}
+function MenuItem(my_href, my_name,sub_menu){
    Container.call(this);
    this.className = "menu-item";
    this.href = my_href;
    this.itemName = my_name;
+    this.subMenu = sub_menu;
 }
 
 MenuItem.prototype = Object.create(Container.prototype);
@@ -57,11 +83,22 @@ function fullMenuContent(xhr){
     if(xhr.status == 0){
         var items = JSON.parse(xhr.responseText);
         
+        console.log(items);
         
         for (var i=0; i< items.menu_items.length;i++){
-            my_items[i] = new MenuItem(items.menu_items[i].href, items.menu_items[i].title);
+            if (items.menu_items[i] instanceof Array){
+                var subArray=[];
+                items.menu_items[i].forEach(function(item,i,arr){
+                    subArray.push(new MenuItem(item.href,item.title));
+                });
+                my_items[i]=subArray;
+            }else{
+                my_items[i] = new MenuItem(items.menu_items[i].href, items.menu_items[i].title,items.menu_items[i].subMenu);
+            }
+            
         }
-        var menu = new Menu("my_menu", "My_class", my_items);
+        
+        var menu = new SubMenu("my_menu", "My_class", my_items);
       var div = document.write(menu.render());
     }
   }
@@ -91,6 +128,7 @@ if (!xhr){
 xhr.onreadystatechange = function (){fullMenuContent(xhr)};
 xhr.open('GET', "./menu.json", true); //
 xhr.send();
+
 
 /*
 Совсем забыл сказать вам важную вещь. 
