@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DZ-4-1</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="tab" ><h3 class="tally">Lorem ipsum.</h3><div class="panel" id="tab1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum commodi rerum optio nemo animi ea perspiciatis veniam sint ab, placeat.</div></div>
+    <div class="tab" ><h3 class="tally">Lorem ipsum.</h3><div class="panel" id="tab2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem aliquam voluptates ipsam qui possimus libero, distinctio deserunt ipsa quas repudiandae?</div></div>
+    <div class="tab" ><h3 class="tally">Lorem ipsum.</h3><div class="panel" id="tab3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex quis reiciendis perspiciatis autem illo assumenda quia facere soluta atque distinctio?</div></div>
+</body>
+<script>$(document).ready(function(){
+        $(".tally").click(function(){
+          $(this).parent().animate({opacity:"hide"},"slow");})
+                        })
+    </script>
+</html>
