@@ -35,9 +35,5 @@ $('li').click(function(event){
     console.log($('li.active').index());
     
         
-    /*});
-    $('div').each(function(i){
-        $(this).find('folder'). 
-             
-    }) ;*/
+   
 });
