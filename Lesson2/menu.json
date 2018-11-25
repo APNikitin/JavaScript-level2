@@ -1,0 +1,18 @@
+{
+   "menu_items" : [
+	   {"href" : "/pic1.jpg", "title" : "Главная"},
+	   {"href" : "/catalogue/", "title" : "Каталог"}, 
+       [
+           {"href": "/chair", "title":"стулья"},
+           {"href": "/bed", "title":"кровати"}
+       ],
+       {"href" : "/gallery/", "title" : "Галерея"},
+	   {"href" : "/promo/", "title" : "Промоакции"},
+       {"href":"about","title":"О нас"},
+       [
+          {"href": "contact","title":"Контакты"},
+          {"href": "cert","title":"сертификаты"}
+        ]
+       
+       ]
+}

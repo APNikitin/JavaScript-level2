@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			font-size: 24px;
+		}
+		body{
+			padding-top: 50px;
+			padding-left: 100px;
+		}
+		.title{
+			font-weight: bold;
+			margin-bottom: 20px;
+		}
+		.red{
+			color:red;
+			background-color: blue; 
+		}
+		.smilies{
+			background-image: url("./smilies.png");
+			width: 18px;
+			height: 18px;
+			display: inline-block;
+		}
+
+		.smile{
+			background-position: 0px 0px;
+		}
+
+		.cry{
+			background-position: -40px -84px;
+		}
+
+		.sad{
+			background-position: -40px -42px;
+		}
+
+		.wink{
+			background-position: -60px -21px;
+		}
+
+		.kiss{
+			background-position: -60px -84px;
+		}
+	</style>
+</head>
+<body>
+    <div ><span class="title"> Большой текст: </span><span id="big_text"></span>   
+    </div>
+	<div class="text">
+		<span class="title">Текст: </span><span id="text"></span>
+	</div>
+	<div class="answer">
+		<span class="title">Результат: </span><span id="answer"></span>
+	</div>
+	<script src="js/engine.js" type="text/javascript"></script>
+</body>
+</html>
