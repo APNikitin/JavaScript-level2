@@ -7,13 +7,25 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
-    <div class="tab" ><h3 class="tally">Lorem ipsum.</h3><div class="panel" id="tab1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum commodi rerum optio nemo animi ea perspiciatis veniam sint ab, placeat.</div></div>
-    <div class="tab" ><h3 class="tally">Lorem ipsum.</h3><div class="panel" id="tab2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem aliquam voluptates ipsam qui possimus libero, distinctio deserunt ipsa quas repudiandae?</div></div>
-    <div class="tab" ><h3 class="tally">Lorem ipsum.</h3><div class="panel" id="tab3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex quis reiciendis perspiciatis autem illo assumenda quia facere soluta atque distinctio?</div></div>
+  <div class="panel">
+    <ul class=folder_title>
+       <li class="active">Первая</li>
+       <li>Вторая</li>
+       <li>Третья</li>
+       <li>Четвертая</li>
+       <li>Пятая</li>
+   </ul>
+   <div class="folder active" id="tab1">Первая Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum commodi rerum optio nemo animi ea perspiciatis veniam sint ab, placeat.</div>
+    <div class="folder"  id="tab1">Вторая Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum commodi rerum optio nemo animi ea perspiciatis veniam sint ab, placeat.</div>
+    <div class="folder" id="tab2">Третья Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem aliquam voluptates ipsam qui possimus libero, distinctio deserunt ipsa quas repudiandae?</div>
+    <div class="folder" id="tab3">Четвертая Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex quis reiciendis perspiciatis autem illo assumenda quia facere soluta atque distinctio?</div>  
+  </div>
+   
 </body>
-<script>$(document).ready(function(){
+<!--<script>$(document).ready(function(){
         $(".tally").click(function(){
           $(this).parent().animate({opacity:"hide"},"slow");})
                         })
-    </script>
+    </script>-->
+    <script src="js/folder.js"></script>
 </html>
