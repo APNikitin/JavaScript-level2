@@ -18,7 +18,7 @@ function folders(){
     this.items=[];
 }
 folders.prototype.fill=function(){
-    this.items = $('folder');
+    this.items = $('.folder');
 }
 folders.prototype.constructor = folders;
 var thisFolders = new folders;
@@ -27,11 +27,13 @@ thisFolders.fill();
 $('li').click(function(event){
     $('li').removeClass();
     event.currentTarget.className ="active";
-    $('folder').removeClass();
-    $('li').each(function(i){
-        
-        $('folder').find( thisFolders.items[i]).addClass('active');
-    });
+    $(".folder.active").removeClass("active");
+    $('.folder').eq(
+        $('li.active').index()    
+        )
+        .addClass('active');
+    console.log($('li.active').index());
+    
         
     /*});
     $('div').each(function(i){
