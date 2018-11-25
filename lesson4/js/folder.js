@@ -35,5 +35,5 @@ $('li').click(function(event){
     console.log($('li.active').index());
     
         
-   
+   /**/
 });
