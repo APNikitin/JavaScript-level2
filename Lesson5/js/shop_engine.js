@@ -64,7 +64,8 @@ var items = [
    		this.count = 0;
 
    		this.render();
-        this.ids = [];
+        
+        
 
 
    		$(".close").on("click", function(){
@@ -77,6 +78,7 @@ var items = [
    			}
    		});
    }
+
    Basket.prototype.render = function() {
    	   		var div = $('.basket');
    	   		div.html('');
@@ -86,6 +88,7 @@ var items = [
 
    	   	$(".button_busc").on("click", function(){
    			$('.modal').css("display","flex");
+            
    		});
 
    };
@@ -96,13 +99,14 @@ var items = [
    		items.forEach(function(elem,i,arr){
    			if (id == elem.id){
    				self.summ += elem.price;
-                self.ids.push(elem.id+'_'+this.count);
-   				/*$('.modal_window').append($('<div/>').addClass('modal_item').html("<div>" +elem.title+" Цена:"+elem.price+"</div><div class='remove_btn'>Удалить</div>"));*/
-                $('.modal_window').append($('<div/>').addClass('modal_item').attr('id',elem.id+'_'+this.count).append($('<div/>').addClass('tovar_frame').html(elem.title+" Цена:"+elem.price)).append($('<div/>').addClass('remove_btn').html('удалить')));
+                
+                $('.modal_window').append($('<div/>').addClass('modal_item').append($('<div/>').addClass('tovar_frame').html(elem.title+" Цена:"+elem.price)).append($('<div/>').addClass('remove_btn').attr('id',elem.id+'_'+self.count).html('удалить')));
+                console.log((elem.id+'_'+self.count));
                 $('.remove_btn').on('click',function(){
-                    basket.remove(elem.id+'_'+this.count);
-                    basket.render();
-                })
+                    
+                        basket.remove($(this).parent('modal_item'));
+                        basket.render();
+                    });
    			}
    		});
 
@@ -111,14 +115,8 @@ var items = [
 
    }
   Basket.prototype.remove = function(id){
-    var self=this;
-      items.forEach(function(elem,i,arr){
-          if (id=elem.id){
-              self.summ -=elem.price;
-              /*$('.modal_window').detach()
-           */   
-          }
-      });
+   
+     $(id).detach(); 
       
       this.count--;
    }
