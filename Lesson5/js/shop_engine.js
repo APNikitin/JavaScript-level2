@@ -90,6 +90,9 @@ var items = [
    			$('.modal').css("display","flex");
             
    		});
+      /* if(!this.count) {
+        $('.modal_window').append($('<div/>').addClass('infi').html("Ваша корзина пуста"));
+       }*/
 
    };
 
@@ -101,12 +104,14 @@ var items = [
    				self.summ += elem.price;
                 
                 $('.modal_window').append($('<div/>').addClass('modal_item').append($('<div/>').addClass('tovar_frame').html(elem.title+" Цена:"+elem.price)).append($('<div/>').addClass('remove_btn').attr('id',elem.id+'_'+self.count).html('удалить')));
+                
                 console.log((elem.id+'_'+self.count));
-                $('.remove_btn').on('click',function(){
+                $('#'+(elem.id+'_'+self.count)).on('click',function(Event){
                     
-                        basket.remove($(this).parent('modal_item'));
+                        basket.rem_item(Event);
                         basket.render();
-                    });
+                                      
+                });
    			}
    		});
 
@@ -114,11 +119,15 @@ var items = [
 
 
    }
-  Basket.prototype.remove = function(id){
-   
-     $(id).detach(); 
+  Basket.prototype.rem_item = function(Event){
+        
+     var temp_str = $('#'+Event.currentTarget.getAttribute('id')).siblings('.tovar_frame').html();
+      this.summ -= parseInt(temp_str.replace(/\W+\s+\d+\s+\W+/,''));
       
-      this.count--;
+     console.log(temp_str); 
+    $('#'+Event.currentTarget.getAttribute('id')).parent().remove(); 
+    console.log(1+this.count);  
+    this.count--;
    }
 
    items.forEach(function(elem,i,arr){
