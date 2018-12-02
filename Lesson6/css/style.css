@@ -1,0 +1,15 @@
+container{
+    margin: 0;
+    padding: 0;
+}
+.r_form{
+    max-width: 60%;
+}
+div{
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+}
+input{
+    margin-bottom: 30px;
+}

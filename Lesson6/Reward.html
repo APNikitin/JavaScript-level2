@@ -3,8 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="CSS/Style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </head>
 <body>
-    
+   <container>
+       <form class="r_form">
+           <div>
+               <input type="text" id="r_name" placeholder="Макс Филиппов">
+               <input type="email" id="r_email" placeholder="MaxF@MAIL.RU">
+               <input type="phone" id="r_tel" placeholder="+7 912 000 00 00">
+               <input type="text" id="r_city" list="r_city_list" placeholder="Москва">
+               <datalist id="r_city_list"></datalist>
+               <textarea name="r_message" id="r_r_message" cols="30" rows="10" placeholder="Ваше собщение"></textarea>
+               
+               <button type="submit">Отправить</button>
+           </div>
+       </form>
+   </container>
+    <script src="js/city_gid.js" type="text/javascript"></script>
 </body>
 </html>
