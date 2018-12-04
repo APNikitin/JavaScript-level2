@@ -13,3 +13,6 @@ div{
 input{
     margin-bottom: 30px;
 }
+.error_field{
+    border: 1px solid red;
+}
