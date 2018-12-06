@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="CSS/Style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+
+<body>
+    <container>
+        <header>
+            <div class="carousel"> </div>
+        </header>
+        <div>
+            <input type="text" id="r_name" placeholder="Макс Филиппов">
+            <input type="email" id="r_email" placeholder="MaxF@MAIL.RU">
+            <input type="phone" id="r_tel" placeholder="+7 912 000 00 00">
+            <input type="date" id="r_dateofbirth" placeholder="12.12.2000">
+            <input type="text" id="r_city" list="r_city_list" placeholder="Москва">
+            <datalist id="r_city_list"></datalist>
+            <textarea name="r_message" id="r_r_message" cols="30" rows="10" placeholder="Ваше собщение"></textarea>
+            <button type="submit" id="btn_submit">Отправить</button>
+        </div>
+    </container>
+    <script src="js/city_gid.js" type="text/javascript"></script>
+</body>
+
+</html>
