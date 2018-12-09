@@ -1,51 +1,52 @@
 {
-    products_items: [
+    "products_items": [
 	   {
 	   	"id":"1",
 	   	"title":"Товар 1",
 	   	"price":100,
-        "preview_img":"img\small_1.jpg"
+        "preview_img":"img/small_1.jpg"
 	   },
 	   {
 	   	"id":"2",
 	   	"title":"Товар 2",
 	   	"price":200,
-           "preview_img":"img\small_2.jpg"
+        "preview_img":"img/small_2.jpg"
 	   },
 	   {
 	   	"id":"3",
 	   	"title":"Товар 3",
 	   	"price":300,
-           "preview_img":"img\small_3.jpg"
+        "preview_img":"img/small_3.jpg"
 	   },
 	   {
 	   	"id":"4",
 	   	"title":"Товар 4",
 	   	"price":400,
-           "preview_img":"img\small_4.jpg"
+        "preview_img":"img/small_4.jpg"
 	   },
 	   {
 	   	"id":"5",
 	   	"title":"Товар 5",
 	   	"price":500,
-           "preview_img":"img\small_5.jpg"
+        "preview_img":"img/small_5.jpg"
 	   },
 	   {
 	   	"id":"6",
 	   	"title":"Товар 6",
 	   	"price":600,
-           "preview_img":"img\small_6.jpg"
+        "preview_img":"img/small_6.jpg"
 	   },
         {
 	   	"id":"7",
 	   	"title":"Товар 7",
 	   	"price":600,
-           "preview_img":"img\small_7.jpg"
+        "preview_img":"img/small_7.jpg"
 	   },
         {
 	   	"id":"8",
 	   	"title":"Товар 8",
 	   	"price":600,
-           "preview_img":"img\small_8.jpg"
-	   },
+        "preview_img":"img/small_8.jpg"
+	   }
+        ]
 }

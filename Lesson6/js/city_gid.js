@@ -1,21 +1,80 @@
 $(document).ready(function(){
+    function Slider (){
+        this.position='50%';
+        
+        this.render();
+    }
+    
+    Slider.prototype.render =function(){
+        var self = this;
+        var div = $('<div/>').addClass('carousel');
+       div.append($('<div/>').addClass('carousel_prod_area')); 
+       div.append($('<div/>').addClass('carousel_button_area').append($('<div/>').addClass('carousel_button').attr('id','carousel_left_btn')).append($('<div/>').addClass('carousel_button').attr('id','carousel_right_btn')));
+       
+        
+        
+        
+        $('header').append(div);
+    }
+    var slider = new Slider();
+    
+    function Products(id,title,price,preview_img){
+        this.id = id;
+   		this.title = title;
+   		this.price = price;
+        this.preview_img = preview_img;
+   		this.render();
+    };
+    
+    Products.prototype.render = function() {
+   		var self = this;
+   		var div = $('<div/>')
+   					.addClass('product');
+
+   		div.attr("id", this.id);	
+       
+   		div.append($('<div/>').addClass('title').html(this.title));	
+        div.append($('<div/>').addClass('image_prod').css("background-image","url('" + self.preview_img+"')"));//добавить картинку
+   		div.append($('<div/>').addClass('price').html("Цена: "+this.price+"р"));	
+   		div.append($('<div/>').addClass('button').html("Купить"));		
+   		
+   		$(".carousel_prod_area").append(div);
+
+   		/*$(".button").on("click", function(){
+   			if ($(this).parent().attr("id") == self.id){
+   				basket.add(self.id);
+   				basket.render();
+   			}
+   		});*/
+   };
+    
+    $.getJSON('../json/warehaus.json',function(data){
+        var products_items= data.products_items;
+        products_items.forEach(function(item,i,arr){
+            console.log(item);
+            var product = new Products(item.id,item.title,item.price,item.preview_img);
+        });
+        
+    });
+    
+    
   
     function CityList(){
         
     }
     CityList.prototype.constructor = CityList;
     
-    $.getJSON('city.json',function(CityList){
-      /*$.parseJSON(CityList);*/
-        /*console.log(CityList.city);*/
-        var option = '';
-     CityList.city.forEach(function(item){
-         option += '<option value='+item+'>';
-         
-         
-     })
-        $('#r_city_list').html(option);
-    });
+//    $.getJSON('../json/city.json',function(CityList){
+//      /*$.parseJSON(CityList);*/
+//        /*console.log(CityList.city);*/
+//        var option = '';
+//     CityList.city.forEach(function(item){
+//         option += '<option value='+item+'>';
+//         
+//         
+//     })
+//        $('#r_city_list').html(option);
+//    });
    //____________click button send_________________________  
     $('#btn_submit').click(function(){
         //______________________verify name_________
