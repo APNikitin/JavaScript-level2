@@ -1,21 +1,99 @@
 $(document).ready(function(){
+   var products_items=  [
+	   {
+	   	"id":"1",
+	   	"title":"Товар 1",
+	   	"price":100,
+        "preview_img":"img/small_1.jpg"
+	   },
+	   {
+	   	"id":"2",
+	   	"title":"Товар 2",
+	   	"price":200,
+        "preview_img":"img/small_2.jpg"
+	   },
+	   {
+	   	"id":"3",
+	   	"title":"Товар 3",
+	   	"price":300,
+        "preview_img":"img/small_3.jpg"
+	   },
+	   {
+	   	"id":"4",
+	   	"title":"Товар 4",
+	   	"price":400,
+        "preview_img":"img/small_4.jpg"
+	   },
+	   {
+	   	"id":"5",
+	   	"title":"Товар 5",
+	   	"price":500,
+        "preview_img":"img/small_5.jpg"
+	   },
+	   {
+	   	"id":"6",
+	   	"title":"Товар 6",
+	   	"price":600,
+        "preview_img":"img/small_6.jpg"
+	   },
+        {
+	   	"id":"7",
+	   	"title":"Товар 7",
+	   	"price":600,
+        "preview_img":"img/small_7.jpg"
+	   },
+        {
+	   	"id":"8",
+	   	"title":"Товар 8",
+	   	"price":600,
+        "preview_img":"img/small_8.jpg"
+	   }
+        ]; 
+    
     function Slider (){
-        this.position='50%';
-        
+        this.position= 0;
         this.render();
-    }
+        this.moveLeft();
+        this.moveRight();
+        
+        
+    };
+    
+    Slider.prototype.moveLeft =function(){
+        /*if()*/
+        /*var self = this;
+        this.position -= 10;
+        $('.carousel_prod_area').css({transform: 'translateX('+self.position+'%)'});
+        console.log(this.position);*/
+    };
+    
+    Slider.prototype.moveRight =function(){
+       /* var self = this;
+        this.position += 10;
+        $('.carousel_prod_area').css({transform: 'translateX('+self.position+'%)'});
+        console.log(this.position);*/
+        console.log(this.position)
+    };
     
     Slider.prototype.render =function(){
-        var self = this;
+        var sel = this;
         var div = $('<div/>').addClass('carousel');
        div.append($('<div/>').addClass('carousel_prod_area')); 
        div.append($('<div/>').addClass('carousel_button_area').append($('<div/>').addClass('carousel_button').attr('id','carousel_left_btn')).append($('<div/>').addClass('carousel_button').attr('id','carousel_right_btn')));
-       
-        
-        
-        
+      
+                
         $('header').append(div);
+        $('#carousel_left_btn').hover(function(){
+            if (sel.position == -100){sel.position=0}
+            sel.position -= 10;
+            $('.carousel_prod_area').animate({left: sel.position+'px'})
+        });
+        $('#carousel_right_btn').on('click',function(){
+            sel.position += 10;
+            $('.carousel_prod_area').animate({left: sel.position+'px'})});
+
     }
+    
     var slider = new Slider();
     
     function Products(id,title,price,preview_img){
@@ -48,23 +126,41 @@ $(document).ready(function(){
    		});*/
    };
     
-    $.getJSON('../json/warehaus.json',function(data){
+   /*$.ajax({
+    url: "json/warehaus.json",
+    type: "POST",
+    crossDomain: true,
+    dataType: "json",
+    success: function (response) {
+    var data = jQuery.parseJSON(response);
+        var products_items= data.products_items;
+            products_items.forEach(function(item,i,arr){
+                console.log(item);
+                var product = new Products(item.id,item.title,item.price,item.preview_img);
+            });
+    }
+    });
+    */
+    /*$.getJSON('json/warehaus.json',function(data){
         var products_items= data.products_items;
         products_items.forEach(function(item,i,arr){
             console.log(item);
             var product = new Products(item.id,item.title,item.price,item.preview_img);
         });
         
-    });
+    });*/
     
-    
+   products_items.forEach(function(item,i,arr){
+                console.log(item);
+                var product = new Products(item.id,item.title,item.price,item.preview_img);
+            }); 
   
     function CityList(){
         
     }
     CityList.prototype.constructor = CityList;
     
-//    $.getJSON('../json/city.json',function(CityList){
+//    $.getJSON('json/city.json',function(CityList){
 //      /*$.parseJSON(CityList);*/
 //        /*console.log(CityList.city);*/
 //        var option = '';

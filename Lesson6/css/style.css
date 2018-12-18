@@ -5,20 +5,26 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
+container{
+    margin: 0;
+    padding: 0;
+}
 .carousel{
     
-    /*width: 200%;*/
+    
     height: 200px;
     border: 1px solid green;
     align-items: center;
     align-content: center; 
     justify-content: center; 
-    /*left: 50%;
-    transform: translate(-25%,0);*/
     margin-bottom: 50px;
     position: relative;
     overflow: hidden;
     
+}
+.carousel_prod_area{
+    
+    width: 200%;
 }
 .carousel_button_area{
    
@@ -40,11 +46,13 @@
     
 }
 .carousel_prod_area{
-    width: 200%;
+    width: 90%;
     display: flex;
     align-content:space-around;
    margin: 10px; 
   position: relative;
+    left:0px;
+    /*transform: translateX(-25%);*/
 }
 
 .product {
@@ -132,10 +140,7 @@
     cursor: pointer;
     transition: 0.4s;
 }
-container{
-    margin: 0;
-    padding: 0;
-}
+
 .r_form{
     max-width: 60%;
 }
